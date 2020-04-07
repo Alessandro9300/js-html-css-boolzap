@@ -3,3 +3,143 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+body{
+  height: 100vh;
+  font-family: "Segoe UI","Helvetica Neue","Helvetica","Lucida Grande",Arial,"Ubuntu","Cantarell","Fira Sans",sans-serif;
+  font-weight: 600;
+}
+
+/* DEBUG:  */
+.chat{
+  border: solid;
+}
+.chat div{
+  border:solid;
+}
+/* DEBUG:  */
+
+
+main{
+  background-image: url(../img/bg.jpg);
+  background-repeat: repeat-x;
+  background-size: contain;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cont-chat{
+  width: 80%;
+  height: 90%;
+  z-index: 10;
+  display: flex;
+  box-shadow: 0px 0px 5px #00000087;
+}
+
+.utenti{
+  flex-basis: 30%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+
+.head-utenti{
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.icone{
+  display: flex;
+  font-size: 30px;
+  align-items: center;
+
+}
+
+i{
+  color: #808080a1;
+}
+
+.icone i{
+  margin: 0 20px;
+}
+
+.chat-attive > div {
+  padding: 10px;
+}
+
+.chat-attive {
+  overflow: auto;
+}
+
+.utente{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.left-utente{
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+}
+
+.left-utente p:nth-child(2){
+  color: #808080a1;
+}
+
+.orario{
+  color: #808080a1;
+}
+
+.search{
+  display: flex;
+  padding: 15px;
+}
+
+.search .fa-search{
+  font-size: 20px;
+}
+
+.inp-search{
+  border: none;
+  margin-left: 50px;
+  width: 300px;
+}
+
+
+.icona{
+  width: 75px;
+  height: 100%;
+  border-radius: 100%;
+  margin-right: 15px;
+}
+
+.chat{
+  flex-basis: 70%;
+}
+
+.notifiche {
+  background: lightblue;
+  display: flex;
+  padding: 10px;
+}
+
+.bell{
+  border-radius: 100%;
+  background: white;
+  overflow: hidden;
+  width: 55px;
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.fa-bell-slash{
+  font-size: 26px;
+  color: lightblue;
+}
