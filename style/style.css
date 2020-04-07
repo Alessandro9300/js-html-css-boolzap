@@ -186,7 +186,8 @@ i{
   border-radius: 15px;
   padding: 15px;
   margin: 10px 0;
-  width: min-content;
+  width: max-content;
+  max-width: 800px;
   box-shadow: 1px 1px 0px #0000002b;
 
 }
@@ -218,6 +219,11 @@ i{
 i:hover{
   cursor: pointer;
 }
+
+img:hover{
+  cursor: pointer;
+}
+
 
 
 @media screen and (max-width: 1200px)  {
