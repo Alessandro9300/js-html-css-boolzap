@@ -42,7 +42,7 @@ main{
 /* PARTE SINISTRA */
 
 .utenti{
-  flex-basis: 30%;
+  flex-basis: 20%;
   display: flex;
   flex-direction: column;
   background-color: white;
@@ -53,6 +53,7 @@ main{
   display: flex;
   justify-content: space-between;
   background: #79796b2e;
+
 }
 
 .icone{
@@ -87,7 +88,7 @@ i{
 .left-utente{
   display: flex;
   align-items: center;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .left-utente p:nth-child(2){
@@ -151,7 +152,7 @@ i{
 /* PARTE DESTRA CON LA CHAT ATTIVA ETC */
 
 .chat{
-  flex-basis: 70%;
+  flex-basis: 80%;
   display: flex;
   flex-direction: column;
   background: white;
@@ -212,4 +213,39 @@ i{
   border-radius: 20px;
   font-size: 15px;
   font-weight: 400;
+}
+
+i:hover{
+  cursor: pointer;
+}
+
+
+@media screen and (max-width: 1200px)  {
+  .cont-chat{
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .display-chat{
+    height: calc(100% - 138px);
+  }
+
+  .left-utente{
+    font-size: 15px;
+  }
+  .icone{
+    font-size: 22px;
+  }
+  .bottom-chat{
+    font-size: 30px;
+  }
+
+  .icona{
+    width: 50px;
+    height: 50px;
+  }
+
+  .notifiche{
+    font-size: 15px;
+  }
 }
