@@ -31,7 +31,7 @@ $(document).ready(function(){
         $(".fas.fa-microphone").css("display", "block");
         $(".fas.fa-paper-plane").css("display", "none");
 
-        setTimeout(risposta, 1);
+        setTimeout(risposta, 1000);
 
         input.val("");
     }
