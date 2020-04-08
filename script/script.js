@@ -8,6 +8,9 @@ $(document).ready(function(){
   var input = $("#text-send");
 
 
+
+  // FUNZIONE RISPOSTA
+
   function risposta(){
 
     var risposta = ["Ok", "Fact: McDonald’s once made bubblegum-flavored broccoli", "Fact: Scotland has 421 words for 'snow'", "Fact: Most Disney characters wear gloves to keep animation simple", "Fact: The # symbol isn’t officially called hashtag or pound", "Fact: Medical errors are a top cause of death", "Fact: Bees can fly higher than Mount Everest"]
@@ -17,6 +20,8 @@ $(document).ready(function(){
 
     $(".display-chat").append("<div class='messaggio'>" + risposta[numRandom] + "</div>");
   }
+
+  // FUNZIONE PER MANDARE MESSAGGIO
 
   function sendMessage(messaggio){
 
@@ -38,6 +43,7 @@ $(document).ready(function(){
 
   }
 
+  // EVENTO PER SCRIVERE CON INVIO
 
   input.keypress(function(event){
 
@@ -51,6 +57,8 @@ $(document).ready(function(){
     }
 
   })
+
+  // EVENTO PER SCRIVERE CON IL CLICK
 
   $(".fas.fa-paper-plane").click(
     sendMessage
