@@ -88,7 +88,11 @@ i{
 .left-utente{
   display: flex;
   align-items: center;
-  font-size: 18px;
+  font-size: 17px;
+}
+
+.orario{
+  font-size: 14px;
 }
 
 .left-utente p:nth-child(2){
@@ -215,6 +219,10 @@ i{
   border-radius: 20px;
   font-size: 15px;
   font-weight: 400;
+}
+
+.fas.fa-paper-plane{
+  display: none;
 }
 
 i:hover{
