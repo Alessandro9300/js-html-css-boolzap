@@ -6,17 +6,39 @@ $(document).ready(function(){
 
 
   var input = $("#text-send");
+  var search = $(".inp-search");
+  var nomi = $(".utente");
 
+
+  // FUNZIONE FILTRO CON SEARCH
+
+  search.keyup(function(searchWords){
+
+    nomi.each(function(){
+
+      var testoNome = $(this).find(".nomi").text();
+      var minTestoNome = testoNome.toLowerCase();
+      var maxTestoNome = testoNome.toUpperCase();
+
+      if (testoNome.includes(search.val()) || minTestoNome.includes(search.val()) || maxTestoNome .includes(search.val())){
+
+        $(this).show();
+
+      } else {
+        $(this).hide();
+      }
+
+    })
+
+  })
 
 
   // FUNZIONE RISPOSTA
 
   function risposta(){
 
-    var risposta = ["Ok", "Fact: McDonald’s once made bubblegum-flavored broccoli", "Fact: Scotland has 421 words for 'snow'", "Fact: Most Disney characters wear gloves to keep animation simple", "Fact: The # symbol isn’t officially called hashtag or pound", "Fact: Medical errors are a top cause of death", "Fact: Bees can fly higher than Mount Everest"]
+    var risposta = ["Ok", "Fact: McDonald’s once made bubblegum-flavored broccoli.", "Fact: Scotland has 421 words for 'snow'.", "Fact: most Disney characters wear gloves to keep animation simple.", "Fact: the # symbol isn’t officially called hashtag or pound.", "Fact: medical errors are a top cause of death.", "Fact: bees can fly higher than Mount Everest."]
     var numRandom = Math.floor((Math.random() * 7));
-
-    console.log(numRandom);
 
     $(".display-chat").append("<div class='messaggio'>" + risposta[numRandom] + "</div>");
   }
@@ -53,7 +75,6 @@ $(document).ready(function(){
     if (event.keyCode == 13){
       sendMessage();
 
-
     }
 
   })
@@ -63,9 +84,6 @@ $(document).ready(function(){
   $(".fas.fa-paper-plane").click(
     sendMessage
   );
-
-
-
 
 
 })
