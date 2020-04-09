@@ -16,11 +16,12 @@ $(document).ready(function(){
 
     nomi.each(function(){
 
+      var minSearch = search.val().toLowerCase();
+
       var testoNome = $(this).find(".nomi").text();
       var minTestoNome = testoNome.toLowerCase();
-      var maxTestoNome = testoNome.toUpperCase();
 
-      if (testoNome.includes(search.val()) || minTestoNome.includes(search.val()) || maxTestoNome .includes(search.val())){
+      if (minTestoNome.includes(minSearch)){
 
         $(this).show();
 
