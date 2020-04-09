@@ -179,6 +179,10 @@ i{
   height: calc(100% - 165px);
 }
 
+.head-utente-left{
+  display: none;
+}
+
 .display-chat{
   height: 100%;
   background: url(../img/sfondo.jpg);

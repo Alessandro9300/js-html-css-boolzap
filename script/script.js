@@ -96,11 +96,12 @@ $(".utente").click(function(){
 
   $(".utente").css("background","unset")
   $(".display-chat").removeClass("active");
+  $(".head-utente-left").removeClass("active")
 
   var valoreIndex = $(this).index();
 
   $(".display-chat").eq(valoreIndex).addClass("active");
-
+  $(".head-utente-left").eq(valoreIndex).addClass("active");
 
   $(this).css({"background": "rgba(0, 0, 0, 0.1)"})
 
