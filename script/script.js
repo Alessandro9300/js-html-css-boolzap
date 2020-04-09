@@ -90,6 +90,7 @@ $(document).ready(function(){
 
 
 
+  // FUNZIONE PER CAMBIARE LA CHAT ATTIVA IN BASE ALL'UTENTE SELEZIONATO
 
 $(".utente").click(function(){
 
@@ -104,6 +105,16 @@ $(".utente").click(function(){
   $(this).css({"background": "rgba(0, 0, 0, 0.1)"})
 
 
+})
+
+// FUNZIONE PER CANCELLARE I MESSAGGIO
+
+$(".cont-chat-active").on("click", ".messaggio", function(){
+  $(this).find(".actions").toggle();
+})
+
+$(".cont-chat-active").on("click", ".actions", function(){
+  $(this).parent(".messaggio").hide();
 })
 
 
