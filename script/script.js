@@ -1,5 +1,6 @@
-// Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà un “ok” come risposta, che apparirà dopo 1 secondo.
-// Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo “mar” rimangono solo Marco e Martina)
+// Click sul contatto mostra la conversazione del contatto cliccato,
+// è possibile inserire nuovi messaggi per ogni conversazione
+// Cancella messaggio: cliccando sul messaggio appare un menu a tendina che permette di cancellare il messaggio selezionato
 
 
 $(document).ready(function(){
@@ -41,7 +42,7 @@ $(document).ready(function(){
     var risposta = ["Ok", "Fact: McDonald’s once made bubblegum-flavored broccoli.", "Fact: Scotland has 421 words for 'snow'.", "Fact: most Disney characters wear gloves to keep animation simple.", "Fact: the # symbol isn’t officially called hashtag or pound.", "Fact: medical errors are a top cause of death.", "Fact: bees can fly higher than Mount Everest."]
     var numRandom = Math.floor((Math.random() * 7));
 
-    $(".display-chat").append("<div class='messaggio'>" + risposta[numRandom] + "</div>");
+    $(".display-chat.active").append('<div class="messaggio">' + risposta[numRandom] + '<div class="actions"><div class="cancella"> Cancella messaggio </div></div></div>');
   }
 
   // FUNZIONE PER MANDARE MESSAGGIO
@@ -53,7 +54,7 @@ $(document).ready(function(){
 
     if (messaggio != ""){
 
-        $(".display-chat").append("<div class='messaggio inviato'>" + messaggio + "</div>");
+        $(".display-chat.active").append('<div class="messaggio inviato">' + messaggio + '<div class="actions"><div class="cancella">Cancella messaggio</div></div></div>');
         input.val("");
         console.log("all'invio il messaggio valeva" + messaggio);
         $(".fas.fa-microphone").css("display", "block");
@@ -85,6 +86,27 @@ $(document).ready(function(){
   $(".fas.fa-paper-plane").click(
     sendMessage
   );
+
+
+
+
+
+$(".utente").click(function(){
+
+  $(".utente").css("background","unset")
+  $(".display-chat").removeClass("active");
+
+  var valoreIndex = $(this).index();
+
+  $(".display-chat").eq(valoreIndex).addClass("active");
+
+
+  $(this).css({"background": "rgba(0, 0, 0, 0.1)"})
+
+
+})
+
+
 
 
 })
