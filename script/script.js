@@ -9,6 +9,24 @@ $(document).ready(function(){
   var input = $("#text-send");
   var search = $(".inp-search");
   var nomi = $(".utente");
+  var rispostaInCorso = $(".risposta-utente");
+
+
+
+
+
+  // FUNZIONE PER MANDARE FAR VEDERE CHE CI STANNO RISPONDENDO
+
+
+  function messaggioRispostaShow (){
+    var utenteAttivo = $(".left-utente.head-utente-left.active").find(".nomi").text();
+    rispostaInCorso.html(utenteAttivo + " sta scrivendo...");
+    rispostaInCorso.show();
+  }
+
+  function messaggioRispostaHide (){
+    rispostaInCorso.hide();
+  }
 
 
   // FUNZIONE FILTRO CON SEARCH
@@ -60,7 +78,9 @@ $(document).ready(function(){
         $(".fas.fa-microphone").css("display", "block");
         $(".fas.fa-paper-plane").css("display", "none");
 
-        setTimeout(risposta, 1000);
+        setTimeout(risposta, 2500);
+        setTimeout(messaggioRispostaShow, 750);
+        setTimeout(messaggioRispostaHide, 2500);
 
         input.val("");
     }
@@ -108,7 +128,7 @@ $(".utente").click(function(){
 
 })
 
-// FUNZIONE PER CANCELLARE I MESSAGGIO
+// FUNZIONI PER CANCELLARE I MESSAGGIO
 
 $(".cont-chat-active").on("click", ".messaggio", function(){
   $(this).find(".actions").toggle();

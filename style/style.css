@@ -177,9 +177,22 @@ i{
 
 .cont-chat-active{
   height: calc(100% - 165px);
+  position: relative;
 }
 
 .head-utente-left{
+  display: none;
+}
+
+.risposta-utente{
+  background: white;
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  font-size: 12px;
+  font-weight: 400;
+  padding: 3px 5px;
+  border-radius: 15px;
   display: none;
 }
 
