@@ -17,13 +17,7 @@ $(document).ready(function(){
 
 
 
-  // funzione per avere orario aggiornato sempre
-
-
-
-
-
-
+  // funzione per avere orario aggiornato
 
 
   function oraPrecisa(){
@@ -44,7 +38,7 @@ $(document).ready(function(){
     return orario.getHours() + ":" + minuti();
   }
 
-console.log(oraPrecisa());
+  console.log(oraPrecisa());
 
 
   // FUNZIONE PER FAR VEDERE CHE CI STANNO RISPONDENDO
@@ -90,8 +84,12 @@ console.log(oraPrecisa());
   function risposta(){
 
 
-    var risposta = ["Ok", "Fact: McDonald’s once made bubblegum-flavored broccoli.", "Fact: Scotland has 421 words for 'snow'.", "Fact: most Disney characters wear gloves to keep animation simple.", "Fact: the # symbol isn’t officially called hashtag or pound.", "Fact: medical errors are a top cause of death.", "Fact: bees can fly higher than Mount Everest."]
+    var risposta = ["Ok", "Fact: McDonald’s once made bubblegum-flavored broccoli.", "Fact: Scotland has 421 words for 'snow'.", "Fact: most Disney characters wear gloves to keep animation simple.", "Fact: the # symbol isn’t officially called hashtag or pound.", "Fact: medical errors are a top cause of death.", "Fact: bees can fly higher than Mount Everest.", "Ma chi è quel mona che sbatte la porta entrando"]
     var numRandom = Math.floor((Math.random() * 7));
+
+    if ($(".active").find(".nomi").text() == "Germano"){
+      var numRandom = 7;
+    }
 
     $(".display-chat.active").append('<div class="messaggio">' + risposta[numRandom] + '<div class="orario">' + oraPrecisa() + '<div class="actions"><div class="cancella"> Cancella messaggio </div></div></div>');
   }
