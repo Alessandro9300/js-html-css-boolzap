@@ -15,7 +15,39 @@ $(document).ready(function(){
 
 
 
-  // FUNZIONE PER MANDARE FAR VEDERE CHE CI STANNO RISPONDENDO
+
+
+  // funzione per avere orario aggiornato sempre
+
+
+
+
+
+
+
+
+  function oraPrecisa(){
+
+    var orario = new Date();
+
+    function minuti(){
+
+      var minuti = orario.getMinutes();
+
+      if (minuti < 10){
+        return "0" + minuti
+      } else if (minuti >= 10) {
+        return minuti
+      }
+    }
+
+    return orario.getHours() + ":" + minuti();
+  }
+
+console.log(oraPrecisa());
+
+
+  // FUNZIONE PER FAR VEDERE CHE CI STANNO RISPONDENDO
 
 
   function messaggioRispostaShow (){
@@ -57,22 +89,24 @@ $(document).ready(function(){
 
   function risposta(){
 
+
     var risposta = ["Ok", "Fact: McDonald’s once made bubblegum-flavored broccoli.", "Fact: Scotland has 421 words for 'snow'.", "Fact: most Disney characters wear gloves to keep animation simple.", "Fact: the # symbol isn’t officially called hashtag or pound.", "Fact: medical errors are a top cause of death.", "Fact: bees can fly higher than Mount Everest."]
     var numRandom = Math.floor((Math.random() * 7));
 
-    $(".display-chat.active").append('<div class="messaggio">' + risposta[numRandom] + '<div class="actions"><div class="cancella"> Cancella messaggio </div></div></div>');
+    $(".display-chat.active").append('<div class="messaggio">' + risposta[numRandom] + '<div class="orario">' + oraPrecisa() + '<div class="actions"><div class="cancella"> Cancella messaggio </div></div></div>');
   }
 
   // FUNZIONE PER MANDARE MESSAGGIO
 
   function sendMessage(messaggio){
 
-    var messaggio = input.val();
 
+
+    var messaggio = input.val();
 
     if (messaggio != ""){
 
-        $(".display-chat.active").append('<div class="messaggio inviato">' + messaggio + '<div class="actions"><div class="cancella">Cancella messaggio</div></div></div>');
+        $(".display-chat.active").append('<div class="messaggio inviato">' + messaggio + '<div class="orario">' + oraPrecisa() + '</div><div class="actions"><div class="cancella">Cancella messaggio</div></div></div>');
         input.val("");
         console.log("all'invio il messaggio valeva" + messaggio);
         $(".fas.fa-microphone").css("display", "block");
@@ -90,6 +124,8 @@ $(document).ready(function(){
   // EVENTO PER SCRIVERE CON INVIO
 
   input.keypress(function(event){
+
+
 
     $(".fas.fa-microphone").css("display", "none");
     $(".fas.fa-paper-plane").css("display", "block");
