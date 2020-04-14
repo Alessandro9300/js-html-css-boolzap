@@ -8,7 +8,7 @@ $(document).ready(function(){
   var input = $("#text-send");
   var search = $(".inp-search");
   var nomi = $(".utente");
-  var rispostaInCorso = $(".risposta-utente");
+
 
 
   // EVENTO PER SCRIVERE CON INVIO
@@ -20,7 +20,6 @@ $(document).ready(function(){
 
     if (event.keyCode == 13){
       sendMessage();
-
     }
 
   })
@@ -60,13 +59,16 @@ $(document).ready(function(){
 
   // FUNZIONE PER FAR VEDERE CHE CI STANNO RISPONDENDO
 
-  function messaggioRispostaShow (){
+  function messaggioRispostaShow (prova){
+    rispostaInCorso = $(".display-chat.active .risposta-utente");
     var utenteAttivo = $(".left-utente.head-utente-left.active").find(".nomi").text();
     rispostaInCorso.html(utenteAttivo + " sta scrivendo...");
     rispostaInCorso.show();
+
   }
 
   function messaggioRispostaHide (){
+
     rispostaInCorso.hide();
   }
 
@@ -98,19 +100,23 @@ $(document).ready(function(){
   function risposta(){
 
 
-    var risposta = ["Ok", "Fact: McDonald’s once made bubblegum-flavored broccoli.", "Fact: Scotland has 421 words for 'snow'.", "Fact: most Disney characters wear gloves to keep animation simple.", "Fact: the # symbol isn’t officially called hashtag or pound.", "Fact: medical errors are a top cause of death.", "Fact: bees can fly higher than Mount Everest.", "Ma chi è quel mona che sbatte la porta e che chiude entrando!"]
+    var risposta = ["Ok", "Fact: McDonald’s once made bubblegum-flavored broccoli.", "Fact: Scotland has 421 words for 'snow'.", "Fact: most Disney characters wear gloves to keep animation simple.", "Fact: the # symbol isn’t officially called hashtag or pound.", "Fact: medical errors are a top cause of death.", "Fact: bees can fly higher than Mount Everest.", "Ma chi è quel mona che sbatte la porta e che urla entrando!"]
+
     var numRandom = Math.floor((Math.random() * 7));
 
     if ($(".active").find(".nomi").text() == "Germano"){
       var numRandom = 7;
     }
 
-    $(".display-chat.active").append('<div class="messaggio">' + risposta[numRandom] + '<div class="orario">' + oraPrecisa() + '</div><div class="actions"><div class="cancella"> Cancella messaggio </div></div></div>');
+    $(".display-chat.active").append('<div class="messaggio ricevuto">' + risposta[numRandom] + '<div class="orario">' + oraPrecisa() + '</div><div class="actions"><div class="cancella"> Cancella messaggio </div></div></div>');
+
+    $(".messaggio.ricevuto:last-child").hide();
   }
 
   // FUNZIONE PER MANDARE MESSAGGIO
 
   function sendMessage(messaggio){
+
 
     var messaggio = input.val();
 
@@ -122,9 +128,10 @@ $(document).ready(function(){
         $(".fas.fa-microphone").css("display", "block");
         $(".fas.fa-paper-plane").css("display", "none");
 
-        setTimeout(risposta, 2500);
+        risposta();
         setTimeout(messaggioRispostaShow, 750);
         setTimeout(messaggioRispostaHide, 2500);
+        setTimeout(showMessage, 2500)
 
         input.val("");
     }
@@ -142,9 +149,7 @@ $(document).ready(function(){
       var minTestoNome = testoNome.toLowerCase();
 
       if (minTestoNome.includes(minSearch)){
-
         $(this).show();
-
       } else {
         $(this).hide();
       }
@@ -168,6 +173,8 @@ $(document).ready(function(){
 
   }
 
-
-
 })
+
+function showMessage(){
+  $(".messaggio.ricevuto:last-child").show();
+}

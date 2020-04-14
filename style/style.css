@@ -10,15 +10,6 @@ body{
   font-weight: 600;
 }
 
-/* DEBUG:  */
-/* .chat{
-  border: solid 1px;
-}
-.chat div{
-  border:solid 1px;
-} */
-/* DEBUG:  */
-
 /* CONTENITORE */
 
 main{
@@ -53,14 +44,12 @@ main{
   display: flex;
   justify-content: space-between;
   background: #79796b2e;
-
 }
 
 .icone{
   display: flex;
   font-size: 30px;
   align-items: center;
-
 }
 
 i{
@@ -150,8 +139,6 @@ i{
   font-size: 26px;
   color: lightblue;
 }
-
-
 
 /* PARTE DESTRA CON LA CHAT ATTIVA ETC */
 
@@ -258,16 +245,12 @@ i{
   transform: scale(0.97)
 }
 
-
-
-
 .bottom-chat{
   display: flex;
   background: #79796b2e;
   font-size: 40px;
   justify-content: space-between;
   padding: 15px;
-
 }
 
 .bottom-chat input{
@@ -290,7 +273,6 @@ i:hover, .utente:hover, img:hover,.actions:hover,.messaggio:hover{
 .utente:active{
   transform: scale(0.99);
 }
-
 
 @media screen and (max-width: 1200px)  {
   .cont-chat{
