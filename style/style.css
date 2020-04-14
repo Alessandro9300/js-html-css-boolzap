@@ -297,8 +297,12 @@ i:hover, .utente:hover, img:hover,.actions:hover,.messaggio:hover{
     height: 100vh;
   }
 
+  .cont-chat-active{
+    height: calc(100% - 68px)
+  }
+
   .display-chat{
-    height: calc(100% - 138px);
+    height: 100%;
   }
 
   .left-utente{
