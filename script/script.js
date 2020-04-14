@@ -91,7 +91,7 @@ $(document).ready(function(){
       var numRandom = 7;
     }
 
-    $(".display-chat.active").append('<div class="messaggio">' + risposta[numRandom] + '<div class="orario">' + oraPrecisa() + '<div class="actions"><div class="cancella"> Cancella messaggio </div></div></div>');
+    $(".display-chat.active").append('<div class="messaggio">' + risposta[numRandom] + '<div class="orario">' + oraPrecisa() + '</div><div class="actions"><div class="cancella"> Cancella messaggio </div></div></div>');
   }
 
   // FUNZIONE PER MANDARE MESSAGGIO
