@@ -59,8 +59,8 @@ $(document).ready(function(){
 
   // FUNZIONE PER FAR VEDERE CHE CI STANNO RISPONDENDO
 
-  function messaggioRispostaShow (prova){
-    rispostaInCorso = $(".display-chat.active .risposta-utente");
+  function messaggioRispostaShow (){
+    var rispostaInCorso = $(".display-chat.active .risposta-utente");
     var utenteAttivo = $(".left-utente.head-utente-left.active").find(".nomi").text();
     rispostaInCorso.html(utenteAttivo + " sta scrivendo...");
     rispostaInCorso.show();
@@ -68,8 +68,7 @@ $(document).ready(function(){
   }
 
   function messaggioRispostaHide (){
-
-    rispostaInCorso.hide();
+    $(".risposta-utente").hide();
   }
 
   // funzione per avere orario aggiornato
