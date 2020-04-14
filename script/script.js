@@ -5,20 +5,72 @@
 
 $(document).ready(function(){
 
-
   var input = $("#text-send");
   var search = $(".inp-search");
   var nomi = $(".utente");
   var rispostaInCorso = $(".risposta-utente");
 
 
+  // EVENTO PER SCRIVERE CON INVIO
+
+  input.keypress(function(event){
+
+    $(".fas.fa-microphone").css("display", "none");
+    $(".fas.fa-paper-plane").css("display", "block");
+
+    if (event.keyCode == 13){
+      sendMessage();
+
+    }
+
+  })
+
+  // EVENTO PER SCRIVERE CON IL CLICK
+
+  $(".fas.fa-paper-plane").click(
+    sendMessage
+  );
+
+  // EVENTO PER UTILIZZARE IL SEARCH
+
+  search.keyup(
+    filtro
+  );
+
+  // EVENTO PER CAMBIARE LA CHAT ATTIVA IN BASE ALL'UTENTE SELEZIONATO
+
+  $(".utente").click(
+    cambio
+  );
+
+  // FUNZIONI
+
+  // FUNZIONI PER CANCELLARE I MESSAGGIO
+
+  $(".cont-chat-active").on("click", ".messaggio", function(){
+    $(this).find(".actions").toggle();
+    $(this).siblings(".messaggio").find(".actions").hide();
+
+  })
+
+  $(".cont-chat-active").on("click", ".actions", function(){
+    $(this).parent(".messaggio").hide();
+  })
 
 
+  // FUNZIONE PER FAR VEDERE CHE CI STANNO RISPONDENDO
 
+  function messaggioRispostaShow (){
+    var utenteAttivo = $(".left-utente.head-utente-left.active").find(".nomi").text();
+    rispostaInCorso.html(utenteAttivo + " sta scrivendo...");
+    rispostaInCorso.show();
+  }
 
+  function messaggioRispostaHide (){
+    rispostaInCorso.hide();
+  }
 
   // funzione per avere orario aggiornato
-
 
   function oraPrecisa(){
 
@@ -38,46 +90,8 @@ $(document).ready(function(){
     return orario.getHours() + ":" + minuti();
   }
 
-  console.log(oraPrecisa());
 
-
-  // FUNZIONE PER FAR VEDERE CHE CI STANNO RISPONDENDO
-
-
-  function messaggioRispostaShow (){
-    var utenteAttivo = $(".left-utente.head-utente-left.active").find(".nomi").text();
-    rispostaInCorso.html(utenteAttivo + " sta scrivendo...");
-    rispostaInCorso.show();
-  }
-
-  function messaggioRispostaHide (){
-    rispostaInCorso.hide();
-  }
-
-
-  // FUNZIONE FILTRO CON SEARCH
-
-  search.keyup(function(searchWords){
-
-    nomi.each(function(){
-
-      var minSearch = search.val().toLowerCase();
-
-      var testoNome = $(this).find(".nomi").text();
-      var minTestoNome = testoNome.toLowerCase();
-
-      if (minTestoNome.includes(minSearch)){
-
-        $(this).show();
-
-      } else {
-        $(this).hide();
-      }
-
-    })
-
-  })
-
+  // FUNZIONI RICHIAMATE DA ALTRI EVENTI
 
   // FUNZIONE RISPOSTA
 
@@ -98,8 +112,6 @@ $(document).ready(function(){
 
   function sendMessage(messaggio){
 
-
-
     var messaggio = input.val();
 
     if (messaggio != ""){
@@ -119,59 +131,42 @@ $(document).ready(function(){
 
   }
 
-  // EVENTO PER SCRIVERE CON INVIO
+  // FUNZIONE FILTRO
 
-  input.keypress(function(event){
+  function filtro(){
+    nomi.each(function(){
 
+      var minSearch = search.val().toLowerCase();
 
+      var testoNome = $(this).find(".nomi").text();
+      var minTestoNome = testoNome.toLowerCase();
 
-    $(".fas.fa-microphone").css("display", "none");
-    $(".fas.fa-paper-plane").css("display", "block");
+      if (minTestoNome.includes(minSearch)){
 
-    if (event.keyCode == 13){
-      sendMessage();
+        $(this).show();
 
-    }
+      } else {
+        $(this).hide();
+      }
 
-  })
-
-  // EVENTO PER SCRIVERE CON IL CLICK
-
-  $(".fas.fa-paper-plane").click(
-    sendMessage
-  );
-
-
-
+    })
+  }
 
   // FUNZIONE PER CAMBIARE LA CHAT ATTIVA IN BASE ALL'UTENTE SELEZIONATO
 
-$(".utente").click(function(){
+  function cambio(){
+    $(".utente").css("background","unset")
+    $(".display-chat").removeClass("active");
+    $(".head-utente-left").removeClass("active")
 
-  $(".utente").css("background","unset")
-  $(".display-chat").removeClass("active");
-  $(".head-utente-left").removeClass("active")
+    var valoreIndex = $(this).index();
 
-  var valoreIndex = $(this).index();
+    $(".display-chat").eq(valoreIndex).addClass("active");
+    $(".head-utente-left").eq(valoreIndex).addClass("active");
 
-  $(".display-chat").eq(valoreIndex).addClass("active");
-  $(".head-utente-left").eq(valoreIndex).addClass("active");
+    $(this).css({"background": "rgba(0, 0, 0, 0.1)"})
 
-  $(this).css({"background": "rgba(0, 0, 0, 0.1)"})
-
-
-})
-
-// FUNZIONI PER CANCELLARE I MESSAGGIO
-
-$(".cont-chat-active").on("click", ".messaggio", function(){
-  $(this).find(".actions").toggle();
-})
-
-$(".cont-chat-active").on("click", ".actions", function(){
-  $(this).parent(".messaggio").hide();
-})
-
+  }
 
 
 

@@ -240,7 +240,7 @@ i{
 .actions{
   background: white;
   position: absolute;
-  top: 55px;
+  top: 45px;
   right: 0px;
   box-shadow: 1px 1px 0px #0000002b;
   border-radius: 15px;
@@ -248,6 +248,7 @@ i{
   width: max-content;
   font-size: 11px;
   display: none;
+  z-index: 1000000;
 }
 
 .actions:hover{
