@@ -98,7 +98,7 @@ $(document).ready(function(){
   function risposta(){
 
 
-    var risposta = ["Ok", "Fact: McDonald’s once made bubblegum-flavored broccoli.", "Fact: Scotland has 421 words for 'snow'.", "Fact: most Disney characters wear gloves to keep animation simple.", "Fact: the # symbol isn’t officially called hashtag or pound.", "Fact: medical errors are a top cause of death.", "Fact: bees can fly higher than Mount Everest.", "Ma chi è quel mona che sbatte la porta entrando!"]
+    var risposta = ["Ok", "Fact: McDonald’s once made bubblegum-flavored broccoli.", "Fact: Scotland has 421 words for 'snow'.", "Fact: most Disney characters wear gloves to keep animation simple.", "Fact: the # symbol isn’t officially called hashtag or pound.", "Fact: medical errors are a top cause of death.", "Fact: bees can fly higher than Mount Everest.", "Ma chi è quel mona che sbatte la porta e che chiude entrando!"]
     var numRandom = Math.floor((Math.random() * 7));
 
     if ($(".active").find(".nomi").text() == "Germano"){
