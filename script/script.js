@@ -9,6 +9,10 @@ $(document).ready(function(){
   var search = $(".inp-search");
   var nomi = $(".utente");
 
+  // variabili per i template
+
+  var birba = Handlebars.compile($("#gestione-messaggi").html());
+
 
 
   // EVENTO PER SCRIVERE CON INVIO
@@ -107,7 +111,17 @@ $(document).ready(function(){
       var numRandom = 7;
     }
 
-    $(".display-chat.active").append('<div class="messaggio ricevuto">' + risposta[numRandom] + '<div class="orario">' + oraPrecisa() + '</div><div class="actions"><div class="cancella"> Cancella messaggio </div></div></div>');
+    // variabili Handlebars
+
+    var objTemplate = {
+      msg: risposta[numRandom],
+      ora: oraPrecisa(),
+      class: "messaggio ricevuto"
+    }
+
+    var pushHtml = birba(objTemplate)
+
+    $(".display-chat.active").append(pushHtml);
 
     $(".messaggio.ricevuto:last-child").hide();
   }
@@ -116,12 +130,23 @@ $(document).ready(function(){
 
   function sendMessage(messaggio){
 
-
     var messaggio = input.val();
+
+    // variabili Handlebars
+
+    var objTemplate = {
+      msg: messaggio,
+      ora: oraPrecisa(),
+      class: "messaggio inviato"
+    }
+
+    var pushHtml = birba(objTemplate)
+
+
 
     if (messaggio != ""){
 
-        $(".display-chat.active").append('<div class="messaggio inviato">' + messaggio + '<div class="orario">' + oraPrecisa() + '</div><div class="actions"><div class="cancella">Cancella messaggio</div></div></div>');
+        $(".display-chat.active").append(pushHtml);
         input.val("");
         console.log("all'invio il messaggio valeva" + messaggio);
         $(".fas.fa-microphone").css("display", "block");

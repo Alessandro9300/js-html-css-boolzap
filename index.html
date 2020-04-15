@@ -437,9 +437,26 @@
 
     </main>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript" src="script/script.js">
-</script>
+    <script id="gestione-messaggi" type="text/x-handlebars-template">
+
+      <div class="{{class}}">
+        {{msg}}
+        <div class="orario">
+          {{ora}}
+        </div>
+        <div class="actions">
+          <div class="cancella">
+            Cancella messaggio
+          </div>
+        </div>
+      </div>
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="script/script.js">
+    </script>
 
   </body>
 </html>
