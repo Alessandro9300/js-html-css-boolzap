@@ -11,7 +11,7 @@ $(document).ready(function(){
 
   // variabili per i template
 
-  var birba = Handlebars.compile($("#gestione-messaggi").html());
+  var template = Handlebars.compile($("#gestione-messaggi").html());
 
 
 
@@ -119,7 +119,7 @@ $(document).ready(function(){
       class: "messaggio ricevuto"
     }
 
-    var pushHtml = birba(objTemplate)
+    var pushHtml = template(objTemplate)
 
     $(".display-chat.active").append(pushHtml);
 
@@ -140,7 +140,7 @@ $(document).ready(function(){
       class: "messaggio inviato"
     }
 
-    var pushHtml = birba(objTemplate)
+    var pushHtml = template(objTemplate)
 
 
 
